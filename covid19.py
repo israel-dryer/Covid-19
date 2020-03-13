@@ -19,7 +19,7 @@ data_split = [row[0:4] + row[-1:] for row in csv.reader(data)]
 
 # Find date of last update
 last_updated = data_split[0][-1]
-cities = data_split[1:]
+cities = [row for row in data_split[1:] if row[4]!='0']
 
 # Setup the geolocator
 geopy.geocoders.options.default_user_agent = 'my_app/1'
